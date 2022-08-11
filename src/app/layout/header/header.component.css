@@ -1,0 +1,29 @@
+.navbar-header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 16px;
+    background: #673ab7;
+    color: #fff;
+}
+
+.navbar-header button{
+    transition: background-color ease-in 0.1s;
+}
+
+.navbar-header .active{
+    background-color: #522e93;
+}
+
+.navbar-header button:hover{
+    background-color: rgba(0,0,0,.4);
+}
+
+.mat-icon {
+    font-size: 19px;
+    top: 2px;
+}
+
+.flex-spacer{
+    flex-grow: 1;
+}

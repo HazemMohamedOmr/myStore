@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  hidden: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleBadgeVisibility(): void {
+    this.hidden = !this.hidden;
   }
 
 }

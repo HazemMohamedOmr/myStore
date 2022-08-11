@@ -1,1 +1,8 @@
-<p>header works!</p>
+<nav class="mat-elevation-z6 navbar-header">
+    <button mat-button routerLink="/">My Store</button>
+    <div class="flex-spacer"></div>
+    <button class="ms-1" mat-button routerLink="/products" routerLinkActive="active">Product List</button>
+    <button class="ms-1" mat-button routerLink="/cart" routerLinkActive="active">
+        Cart <mat-icon matBadge="8" matBadgeSize="medium" [matBadgeHidden]="hidden" matBadgeColor="accent">shopping_cart</mat-icon>
+    </button>
+</nav>
