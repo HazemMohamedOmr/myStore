@@ -1,0 +1,14 @@
+.img-container{
+    border: 2px solid #c5b1e7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.img-container img{
+    max-height: 420px;
+    transition: transform ease-in-out 0.2s;
+}
+
+.img-container img:hover{
+    transform: scale(1.12, 1.1);
+}
