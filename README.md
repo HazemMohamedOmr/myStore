@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
+## Description
+
+My Store project is a training project provided by Udacity as a graduation project. It's a simple e-commerce application. Simply fetching data from local JSON file, and displaying it while providing feature to add products to cart to checkout using form later.
+
+
+## Dependencies 
+
+1- Bootstrap `Bootstrap v5.1.3`
+2- Angular Material `Angular Material v13.3.9`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
