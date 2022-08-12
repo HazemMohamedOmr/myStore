@@ -1,1 +1,58 @@
-<p>payment-form works!</p>
+<div class="d-flex justify-content-center mt-4 mt-md-0">
+    <div class="my-form">
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+            <div class="row mb-4">
+                <mat-form-field hintLabel="Min 3 characters" appearance="fill">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="fullName" required placeholder="Ex. Hazem Mohamed">
+                    <mat-hint align="end"></mat-hint>
+                    <mat-error *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)">
+                        <mat-error *ngIf="fullName?.errors?.['required']">
+                            Full Name is Required.
+                        </mat-error>
+                        <mat-error *ngIf="fullName?.errors?.['minlength']">
+                            Full Name must be at least 3 characters long.
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row mb-4">
+                <mat-form-field hintLabel="Min 6 characters" appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" required placeholder="Ex. Cairo, Egypt">
+                    <mat-hint align="end"></mat-hint>
+                    <mat-error *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+                        <mat-error *ngIf="address?.errors?.['required']">
+                            Address is Required.
+                        </mat-error>
+                        <mat-error *ngIf="address?.errors?.['minlength']">
+                            Address must be at least 6 characters long.
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            
+            <div class="row mb-4">
+                <mat-form-field hintLabel="Min 16 characters" appearance="fill">
+                    <mat-label>Credit-Card-Number</mat-label>
+                    <input matInput formControlName="creditCard" required>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-error *ngIf="creditCard?.invalid && (creditCard?.dirty || creditCard?.touched)">
+                        <mat-error *ngIf="creditCard?.errors?.['required']">
+                            Credit Card Number is Required.
+                        </mat-error>
+                        <mat-error *ngIf="creditCard?.errors?.['minlength']">
+                            Credit Card Number must be at least 16 digit long.
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="submission">
+                <p class="text-muted mb-3">We will never share your payment details with anyone else</p>
+                <button type="submit" mat-raised-button color="primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

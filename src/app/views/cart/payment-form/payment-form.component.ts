@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { DataService } from 'src/app/core/services/data.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-payment-form',
@@ -7,9 +11,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentFormComponent implements OnInit {
 
-  constructor() { }
+  private price:number = 0; 
+
+  paymentForm = this.fb.group({
+    fullName: ['', Validators.compose(
+      [Validators.required, Validators.minLength(3)]
+    )],
+    address: ['', Validators.compose(
+      [Validators.required, Validators.minLength(6)]
+    )],
+    creditCard: ['', Validators.compose(
+      [Validators.required, Validators.minLength(16)]
+    )],
+    checkout: ['']
+  })
+
+  constructor(
+    private data:DataService,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.data.totalPrice.subscribe(res =>{
+      this.price = res;
+    })
+  }
+
+  onSubmit():void{
+    if(!this.paymentForm.invalid){
+      this.paymentForm.get('checkout')?.setValue(this.price);
+      this.data.setConfirmBill(this.paymentForm.value);
+      this.router.navigate(['confirmation'], {relativeTo: this.route});
+      this.data.resetCartProducts();
+    }
+  }
+
+  get fullName(){
+    return this.paymentForm.get('fullName');
+  }
+
+  get address(){
+    return this.paymentForm.get('address');
+  }
+
+  get creditCard(){
+    return this.paymentForm.get('creditCard');
   }
 
 }

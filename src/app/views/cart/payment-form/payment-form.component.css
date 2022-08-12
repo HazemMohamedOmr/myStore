@@ -1,0 +1,14 @@
+.my-form{
+    width: 85%;
+    min-width: 70%;
+}
+
+.submission{
+    display: flex;
+    flex-direction: column;
+}
+
+.submission button{
+    margin: 0 auto;
+    width: 25%;
+}
