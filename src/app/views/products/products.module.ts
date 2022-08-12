@@ -8,7 +8,7 @@ import { MaterialModule } from 'src/app/core/material/material.module';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
-  { path: 'product-details', component: ProductItemDetailsComponent}
+  { path: 'product-details/:id', component: ProductItemDetailsComponent}
 ];
 
 @NgModule({

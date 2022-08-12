@@ -1,1 +1,44 @@
-<p>product-item-details works!</p>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="img-container">
+                    <img [src]="product.url" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-sm-6 d-flex align-items-center">
+                <div class="">
+                    <div class="title pt-3">
+                        <h3> {{ product.name }} </h3>
+                    </div>
+                    <div class="price pt-3">
+                        <h5> {{ product.price }} </h5>
+                    </div>
+                    <div class="desc pt-3">
+                        <h5> {{ product.description }} </h5>
+                    </div>
+                    <div class="amount pt-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Amount</mat-label>
+                            <mat-select [(value)]="selected">
+                              <mat-option value="1">1</mat-option>
+                              <mat-option value="2">2</mat-option>
+                              <mat-option value="3">3</mat-option>
+                              <mat-option value="4">4</mat-option>
+                              <mat-option value="5">5</mat-option>
+                              <mat-option value="6">6</mat-option>
+                              <mat-option value="7">7</mat-option>
+                              <mat-option value="8">8</mat-option>
+                              <mat-option value="9">9</mat-option>
+                              <mat-option value="10">10</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="price pt-3">
+                        <button (click)="cartProduct(product)" mat-raised-button color="primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
