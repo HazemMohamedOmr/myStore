@@ -1,0 +1,15 @@
+.img-container{
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img{
+    max-height: 170px;
+    border-radius: 7px;
+}
+
+.my-menu{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}

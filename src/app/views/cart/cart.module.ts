@@ -5,6 +5,8 @@ import { CartComponent } from './cart.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { MaterialModule } from 'src/app/core/material/material.module';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: CartComponent },
@@ -20,7 +22,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CartModule { }

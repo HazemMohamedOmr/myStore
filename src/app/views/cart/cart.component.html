@@ -1,1 +1,47 @@
-<p>cart works!</p>
+<section class="py-5">
+    <div class="container">
+        <div *ngIf="price != 0" class="row">
+            <div class="col-md-6 d-flex flex-column">
+                <div *ngFor="let prod of cartProducts" class="row mb-4">
+                    <div class="col-5">
+                        <div class="img-container">
+                            <img class="img-fluid" [src]="prod.url" alt="">
+                        </div>
+                    </div>
+                    <div class="col-7 d-flex align-items-center position-relative">
+                        <div class="">
+                            <h4> {{ prod.name }} </h4>
+                            <p> {{ prod.price | currency }} </p>
+                            <mat-form-field appearance="standard">
+                                <mat-label>Amount</mat-label>
+                                <input matInput type="number" [(ngModel)]="prod.quantity" (change)="update(prod)">
+                            </mat-form-field>
+                        </div>
+                        <div class="my-menu">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item (click)="removeProd(prod)">
+                                <mat-icon>remove_shopping_cart</mat-icon>
+                                <span>Remove</span>
+                            </button>
+                            </mat-menu>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h3 class="ms-5">Total : {{ price | currency }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <app-payment-form></app-payment-form>
+            </div>
+        </div>
+        <div *ngIf="price == 0" class="row">
+            <h3 class="text-center fs-2" style="text-shadow: 4px 4px 12px black;">Cart is empty</h3>
+        </div>
+    </div>
+</section>
