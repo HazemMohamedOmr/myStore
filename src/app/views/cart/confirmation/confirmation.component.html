@@ -1,1 +1,21 @@
-<p>confirmation works!</p>
+<section class="py-5">
+    <div class="container">
+        <div class="Confirmation d-flex flex-column justify-content-center align-items-center">
+            <div class="head py-3">
+                <h2>Success!</h2>
+            </div>
+            <div class="pt-3">
+                <p>Thank you, <span class="fw-bold"> {{ bill.fullName }} </span>!</p>
+            </div>
+            <div class="pt-3">
+                <p>Your order <span class="fw-bold"> {{ bill.checkout | currency }} </span> is confirmed!</p>
+            </div>
+            <div class="pt-3">
+                <p>Please allow 1-3 business day(s) for shipping.</p>
+            </div>
+            <div class="pt-3">
+                <button routerLink="/" mat-raised-button color="primary">Back to Home</button>
+            </div>
+        </div>
+    </div>
+</section>

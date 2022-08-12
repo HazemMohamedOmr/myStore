@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor() { }
+  bill: any = {};
+
+  constructor(private data:DataService) { }
 
   ngOnInit(): void {
+    this.bill = this.data.confirmBill
+    console.log(this.bill);
+    
   }
 
 }
