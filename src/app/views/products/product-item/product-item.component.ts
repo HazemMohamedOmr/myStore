@@ -1,7 +1,5 @@
 import { Product } from './../../../core/interfaces/product';
-import { Component, Input, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CartService } from 'src/app/core/services/cart.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-item',
@@ -11,9 +9,11 @@ import { CartService } from 'src/app/core/services/cart.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() product:Product;
+  @Output() upProduct:EventEmitter<Product> = new EventEmitter<Product>();
+
   selected:string = "1";
 
-  constructor(private cart:CartService, private _snackBar: MatSnackBar) {
+  constructor() {
     this.product = {
       id: 0,
       name: '',
@@ -29,14 +29,7 @@ export class ProductItemComponent implements OnInit {
 
   cartProduct(prod:Product):void{
     prod.quantity = parseInt(this.selected);
-    let res = this.cart.sendProd(prod);
-    this.openSnackBar(res, "close");
-  }
-
-  private openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action,{
-      duration: 3000
-    });
+    this.upProduct.emit(prod);
   }
 
 }

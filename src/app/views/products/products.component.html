@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div *ngFor="let prod of products" class="col-sm-6 col-md-4">
-                <app-product-item [product]="prod"></app-product-item>
+                <app-product-item [product]="prod" (upProduct)="cartProduct($event)"></app-product-item>
             </div>
         </div>
     </div>
