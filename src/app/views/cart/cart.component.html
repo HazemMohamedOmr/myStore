@@ -14,7 +14,7 @@
                             <p> {{ prod.price | currency }} </p>
                             <mat-form-field appearance="standard">
                                 <mat-label>Amount</mat-label>
-                                <input matInput type="number" [(ngModel)]="prod.quantity" (change)="update(prod)">
+                                <input matInput type="number" [(ngModel)]="prod.quantity" (ngModelChange)="update(prod)">
                             </mat-form-field>
                         </div>
                         <div class="my-menu">
