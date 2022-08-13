@@ -37,10 +37,8 @@ export class ProductItemDetailsComponent implements OnInit {
     });
 
     this.data.getProduct(this.id).subscribe(res =>{
-      console.log("I'm inside component");
       res.quantity = 0;
       this.product = res;
-      console.log(this.product);
     })
   }
 
