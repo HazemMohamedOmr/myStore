@@ -2,6 +2,7 @@ import { Product } from 'src/app/core/interfaces/product';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
@@ -16,7 +17,10 @@ export class ProductItemDetailsComponent implements OnInit {
   product:Product;
   selected:string = "1";
 
-  constructor(private data:DataService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { 
+  constructor(private data:DataService,
+              private route: ActivatedRoute,
+              private _snackBar: MatSnackBar,
+              private cart: CartService) { 
     this.product = {
       id: 0,
       name: '',
@@ -42,7 +46,7 @@ export class ProductItemDetailsComponent implements OnInit {
 
   cartProduct(prod:Product):void{
     prod.quantity = parseInt(this.selected);
-    let res = this.data.sendProd(prod);
+    let res = this.cart.sendProd(prod);
     this.openSnackBar(res, "close");
   }
 

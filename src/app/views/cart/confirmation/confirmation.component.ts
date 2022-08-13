@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -10,10 +10,10 @@ export class ConfirmationComponent implements OnInit {
 
   bill: any = {};
 
-  constructor(private data:DataService) { }
+  constructor(private cart:CartService) { }
 
   ngOnInit(): void {
-    this.bill = this.data.confirmBill
+    this.bill = this.cart.confirmBill
     console.log(this.bill);
     
   }

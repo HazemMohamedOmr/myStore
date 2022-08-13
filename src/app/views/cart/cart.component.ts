@@ -1,6 +1,6 @@
 import { Product } from './../../core/interfaces/product';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -13,24 +13,24 @@ export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
   price: number = 0;
 
-  constructor(private data:DataService, private _snackBar: MatSnackBar) { }
+  constructor(private cart:CartService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.data.cartProducts.subscribe(res =>{
+    this.cart.cartProducts.subscribe(res =>{
       this.cartProducts = res;
     });
 
-    this.data.totalPrice.subscribe(res =>{
+    this.cart.totalPrice.subscribe(res =>{
       this.price = res;
     });
   }
 
   update(prod:Product):void{
-    this.data.sendProd(prod);
+    this.cart.sendProd(prod);
   }
 
   removeProd(prod:Product):void{
-    let msg = this.data.removeProd(prod);
+    let msg = this.cart.removeProd(prod);
     this.openSnackBar(msg, "OK!");
   }
 

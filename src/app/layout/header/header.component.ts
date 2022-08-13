@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +11,10 @@ export class HeaderComponent implements OnInit {
   hidden: boolean = true;
   notifyNum: number = 0;
 
-  constructor(private data:DataService) { }
+  constructor(private cart:CartService) { }
 
   ngOnInit(): void {
-    this.data.cartProducts.subscribe(res =>{
+    this.cart.cartProducts.subscribe(res =>{
       this.notifyNum = res.length;
       this.toggleBadgeVisibility();
     })

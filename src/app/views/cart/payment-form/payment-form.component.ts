@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { DataService } from 'src/app/core/services/data.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -27,13 +27,13 @@ export class PaymentFormComponent implements OnInit {
   })
 
   constructor(
-    private data:DataService,
+    private cart:CartService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.data.totalPrice.subscribe(res =>{
+    this.cart.totalPrice.subscribe(res =>{
       this.price = res;
     })
   }
@@ -41,9 +41,9 @@ export class PaymentFormComponent implements OnInit {
   onSubmit():void{
     if(!this.paymentForm.invalid){
       this.paymentForm.get('checkout')?.setValue(this.price);
-      this.data.setConfirmBill(this.paymentForm.value);
+      this.cart.setConfirmBill(this.paymentForm.value);
       this.router.navigate(['confirmation'], {relativeTo: this.route});
-      this.data.resetCartProducts();
+      this.cart.resetCartProducts();
     }
   }
 
