@@ -4,7 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-My Store project is a training project provided by `Udacity` as a graduation project. It's a simple e-commerce application. Simply fetching data from local JSON file, and displaying it while providing feature to add products to cart to checkout using form later.
+My Store project is a training project provided by `Udacity` as a graduation project. It's a simple e-commerce application.   
+What the application does:   
+* Fetching data from local JSON file.   
+* Display the products to the user.  
+* User can click on product to see more info about it.   
+* User can Add a product to his cart.  
+* User can select how many items he want from that product is his cart.   
+* User can delete a specific product form his cart.  
+* User should complete the checkout form to buy the products.
+
 
 ## Installation
 
@@ -17,6 +26,7 @@ Then, run `ng --version` to see what Version of Angular is currently installed.
 if it's not installed or the version is not `13.3.3`.  
 run `npm install -g @angular/cli@13.3.3` to install it.  
 run `ng --version` again to make sure that Angular is installed successfully.   
+run `ng serve` to serve/run the application on `http://localhost:4200/`.   
 
 
 ## Dependencies 
