@@ -21,7 +21,7 @@ export class PaymentFormComponent implements OnInit {
       [Validators.required, Validators.minLength(6)]
     )],
     creditCard: ['', Validators.compose(
-      [Validators.required, Validators.minLength(16)]
+      [Validators.required, Validators.minLength(16), Validators.pattern("^[0-9]*$")]
     )],
     checkout: ['']
   })

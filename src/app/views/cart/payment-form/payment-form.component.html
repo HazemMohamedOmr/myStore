@@ -45,11 +45,14 @@
                         <mat-error *ngIf="creditCard?.errors?.['minlength']">
                             Credit Card Number must be at least 16 digit long.
                         </mat-error>
+                        <mat-error *ngIf="creditCard?.errors?.['pattern']">
+                            Credit Card Number must contain digit numbers only.
+                        </mat-error>
                     </mat-error>
                 </mat-form-field>
             </div>
 
-            <div class="submission">
+            <div class="submission pt-2">
                 <p class="text-muted mb-3">We will never share your payment details with anyone else</p>
                 <button type="submit" mat-raised-button color="primary">Submit</button>
             </div>
